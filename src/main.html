@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+
+		<style>
+			* { font-family: "微软雅黑"; }
+			ul {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			.mui-btn {
+				padding: 10px;
+			}
+			* { touch-action: none; }
+			.mui-bar-transparent {
+			    top: 0;
+			    background-color: rgba(247,247,247,0);
+			    -webkit-box-shadow: none;
+			    box-shadow: none;
+			}
+			.mui-icon-bars { color: white; }
+			
+			#recordACount {
+				margin-top: 10px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 90%;
+			}
+			#recordACount button {
+				width: 100%;
+				font-size: large;
+			}
+			
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			.mui-media-body {
+				height: 42px;
+				vertical-align: middle;
+				display:table-cell;
+			}
+			#offCanvasSide {
+				background-color: white;
+			}
+			.tap-bar-btn{
+				
+			}
+			.mui-ellipsis {
+				font-size: x-small;
+				color: gainsboro;
+			}
+		</style>
+	</head>
+
+	<body>
+	  <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable mui-scalable">
+		<!--侧滑菜单部分-->
+		<aside id="offCanvasSide" class="mui-off-canvas-left">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="content">
+						<ul>
+							<li class="mui-table-view-cell mui-media">
+								<a href="javascript:;">
+									<img style="width: 45px;" class="mui-media-object mui-pull-left" src="images/user-photo.png">
+									<div class="mui-media-body" style="padding-left: 10px;">个人中心<span style="padding-left: 50px;" class="mui-icon mui-icon-loop"></span></div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="title">
+						我的账本
+					</div>
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media mui-active">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/qihoo.png">
+								<div class="mui-media-body">
+									2018年账本
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/syj/slider-1.jpg">
+								<div class="mui-media-body">
+									旅游账本
+								</div>
+							</a>
+						</li>
+						<li class="mui-table-view-cell mui-media">
+							<a href="javascript:;">
+								<img class="mui-media-object mui-pull-left" src="images/syj/slider-4.jpg">
+								<div class="mui-media-body">
+									私房钱
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<!-- Tab bar 选项卡 -->
+			<nav class="mui-bar mui-bar-tab">
+				<button class="mui-btn">
+					<span class="mui-icon mui-icon-compose tap-bar-btn"></span>
+					<span class="mui-tab-label">编辑</span>
+				</button>
+				<button class="mui-btn" href="#tabbar-with-plusempty">
+					<span class="mui-icon mui-icon-plusempty tap-bar-btn"></span>
+					<span class="mui-tab-label">添加</span>
+				</button>
+			</nav>
+		</aside>
+		
+		<!--主界面部分-->
+		<div class="mui-inner-wrap">
+			<header id="header" class="mui-bar mui-bar-transparent">
+				<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+			</header>
+			<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+			  <div class="mui-scroll">
+				<div class="mui-content">
+				  <!-- 图片轮播  -->
+				  <div id="slider" class="mui-slider" >
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="images/syj/slider-1.jpg">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/syj/slider-1.jpg">
+							</a>
+						</div>
+						<!-- 第二张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/syj/slider-2.jpg">
+							</a>
+						</div>
+						<!-- 第三张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/syj/slider-3.jpg">
+							</a>
+						</div>
+						<!-- 第四张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/syj/slider-4.jpg">
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="images/syj/slider-1.jpg">
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+			  	</div>
+				
+				  <!--  记一笔  -->
+				  <div id="recordACount">
+				  	<!--<button id="record" class="mui-btn-blue">记一笔</button>-->
+				  <a href='jyb.html'>
+					<button id="record" class="mui-btn-blue">记一笔</button>
+				</a>
+				  </div>
+				  
+				  <div class="title">
+					右侧带导航箭头
+				  </div>
+				  <ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell mui-media">
+						<a class="mui-navigate-right">
+							<img class="mui-media-object mui-pull-left" src="images/syj/small-pic-1.png">
+							<div class="mui-media-body">
+								今天
+								<p class='mui-ellipsis'>最近一笔 正餐 13.30</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a class='mui-navigate-right' href="javascript:;">
+							<img class="mui-media-object mui-pull-left" src="images/syj/small-pic-2.png">
+							<div class="mui-media-body">
+								本周
+								<p class='mui-ellipsis'>本周/2018年06月11日-06月17日</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a class="mui-navigate-right">
+							<img class="mui-media-object mui-pull-left" src="images/syj/small-pic-3.png">
+							<div class="mui-media-body">
+								本月
+								<p class='mui-ellipsis'>本月 /2018年06月01日-06月30日</p>
+							</div>
+						</a>
+					</li>
+				  </ul>
+				  
+				  <div class="mui-content-padded">
+					<p>
+						<ul>
+							<li>这是mui带登录和设置模板的示例App首页。</li>
+							<li>您可以点击右上角的 “设置” 按钮，进入设置模板，体验div窗体切换示例。</li>
+							<li>在 “设置” 中点击 “退出” 可以 “注销当前账户” 或 “直接关闭应用”。</li>
+							<li>你可以设置 “锁屏图案”，这样可通过手势密码代替输入账号、密码；</li>
+						</ul>
+					</p>
+
+				  </div>
+				</div>
+			  </div>
+			</div>
+			
+			<!-- Tab bar 选项卡 -->
+			<nav class="mui-bar mui-bar-tab">
+				<!--<a class="mui-tab-item mui-active" href="#tabbar">
+					<span class="mui-icon mui-icon-home"></span>
+					<span class="mui-tab-label">首页</span>
+				</a>-->
+				<a class="mui-tab-item" id="message" href="#tabbar-with-chat">
+					<span class="mui-icon mui-icon-email"><span class="mui-badge">2</span></span>
+					<span class="mui-tab-label">消息</span>
+				</a>
+				<a class="mui-tab-item" id="liushui" href="#">
+					<span class="mui-icon mui-icon-compose" onclick="openwindow()"></span>				
+					<span class="mui-tab-label">流水账</span>
+				</a>
+				<a class="mui-tab-item" id="yusuan" href="#mui-icon-starhalf">
+					<span class="mui-icon mui-icon-starhalf"></span>
+					<span class="mui-tab-label">预算</span>
+				</a>
+				<a class="mui-tab-item" id="more" href="#tabbar-with-more">
+					<span class="mui-icon mui-icon-more"></span>
+					<span class="mui-tab-label">更多</span>
+				</a>
+			</nav>
+			
+			<div class="mui-off-canvas-backdrop"></div>
+			
+			<!--右下角弹出菜单-->
+			<!--<div id="bottomPopover" class="mui-popover mui-popover-bottom">
+			   	<div class="mui-popover-arrow"></div>
+				
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell"><a href="#">Item1</a>
+							</li>
+							<li class="mui-table-view-cell"><a href="#">Item2</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+	
+			</div>-->
+			
+		</div>
+		
+	  </div>
+	  
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					swipeBack:true //启用右滑关闭功能
+				});
+				
+				var slider = mui("#slider");
+				slider.slider({
+					interval: 2000
+				});
+
+				mui.init();
+				 //侧滑容器父节点
+				var offCanvasWrapper = mui('#offCanvasWrapper');
+				 //主界面容器
+				var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+				 //侧滑菜单容器
+				var offCanvasSide = document.getElementById("offCanvasSide");
+				if (!mui.os.android) {
+					document.getElementById("move-togger").classList.remove('mui-hidden');
+					var spans = document.querySelectorAll('.android-only');
+					for (var i = 0, len = spans.length; i < len; i++) {
+						spans[i].style.display = "none";
+					}
+				}
+				
+				var classList = offCanvasWrapper[0].classList;
+				offCanvasWrapper[0].insertBefore(offCanvasSide, offCanvasWrapper[0].firstElementChild);
+				
+			 	//主界面和侧滑菜单界面均支持区域滚动；
+				mui('#offCanvasSideScroll').scroll();
+				mui('#offCanvasContentScroll').scroll();
+				//实现ios平台原生侧滑关闭页面；
+				if (mui.os.plus && mui.os.ios) {
+					mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+						plus.webview.currentWebview().setStyle({
+							'popGesture': 'none'
+						});
+					});
+				}
+				
+				var settings = app.getSettings();
+				var account = doc.getElementById('account');
+				//
+				window.addEventListener('show', function() {
+					var state = app.getState();
+					account.innerText = state.account;
+				}, false);
+				$.plusReady(function() {
+					var settingPage = $.preload({
+						"id": 'setting',
+						"url": 'setting.html'
+					});
+					//--
+					$.oldBack = mui.back;
+					var backButtonPress = 0;
+					$.back = function(event) {
+						backButtonPress++;
+						if (backButtonPress > 1) {
+							plus.runtime.quit();
+						} else {
+							plus.nativeUI.toast('再按一次退出应用');
+						}
+						setTimeout(function() {
+							backButtonPress = 0;
+						}, 1000);
+						return false;
+					};
+				});
+				
+				var liushuiTabItem = doc.getElementById('liushui');
+				var yusuanTabItem = doc.getElementById("yusuan");
+				//tap代替click作为点击事件
+				liushuiTabItem.addEventListener('tap', function(event) {
+						$.openWindow({
+							url: 'ls.html',
+							id: 'ls',
+							preload: true,
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					}, false);
+
+				yusuanTabItem.addEventListener('tap', function(event) {
+						$.openWindow({
+							url: 'ys.html',
+							id: 'ys',
+							preload: true,
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					}, false);
+			}(mui, document));
+			
+			mui('.mui-scroll-wrapper').scroll();
+			mui('body').on('shown', '.mui-popover', function(e) {
+				//console.log('shown', e.detail.id);//detail为当前popover元素
+			});
+			mui('body').on('hidden', '.mui-popover', function(e) {
+				//console.log('hidden', e.detail.id);//detail为当前popover元素
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,37 @@
+{
+	"main.html": {
+		"refer": [
+			"setting.html",
+			"jyb.html",
+			"ls.html",
+			"ys.html"
+		]
+	},
+	"login.html": {
+		"refer": [
+			"main.html",
+			"reg.html"
+		]
+	},
+	"jyb.html": {
+		"refer": [
+			"main.html"
+		]
+	},
+	"ls.html": {
+		"resources": [
+			"ls_1.html"
+		],
+		"refer": [
+			"ls_1.html"
+		]
+	},
+	"ys.html": {
+		"resources": [
+			"ys_1.html"
+		],
+		"refer": [
+			"ys_1.html"
+		]
+	}
+}
