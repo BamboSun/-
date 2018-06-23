@@ -149,7 +149,6 @@
 			</div>-->
 		</div>
 	  </div>
-	  
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.enterfocus.js"></script>
 		<script src="js/app.js"></script>
@@ -188,7 +187,8 @@
 						},20);
 					};
 					//检查 "登录状态/锁屏状态" 开始
-					if (settings.autoLogin && state.token && settings.gestures) {
+					if ( state.token && settings.gestures) {					
+					//if (settings.autoLogin && state.token && settings.gestures) {
 						$.openWindow({
 							url: 'unlock.html',
 							id: 'unlock',
@@ -261,6 +261,21 @@
 					var passwordBox = doc.getElementById('password');
 					var regButton = doc.getElementById('reg');
 					loginButton.addEventListener('tap', function(event) {
+						alert("1");
+
+						var Bmob = require('bmob.js');
+
+						var User = Bmob.Object.extend("User");
+					    query.first({
+						  success: function(object) {
+						    // 查询成功
+						    alert("query success" + object);
+						  },
+						  error: function(error) {
+						    alert("查询失败: " + error.code + " " + error.message);
+						  }
+						});
+					
 						var loginInfo = {
 							account: accountBox.value,
 							password: passwordBox.value
