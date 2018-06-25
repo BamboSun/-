@@ -8,8 +8,9 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>流水</title>
 		<script src="js/mui.min.js"></script>
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link href="css/smui.min.css" rel="stylesheet" />
+		<script src="js/app.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="css/app.css" />-->
 		<style>
 			html,
 			body {
@@ -43,11 +44,9 @@
 				color: #8f8f94;
 			}
 			
-			
-			.mui-bar-transparent{
-				background-color: rgba(76,193,250,0);
+			.mui-bar-transparent {
+				background-color: rgba(76, 193, 250, 0);
 			}
-			
 			
 			.container {
 				position: relative;
@@ -66,7 +65,7 @@
 				left: 16px;
 				top: 50%;
 				width: 100%;
-/*				text-align: center;*/
+				/*				text-align: center;*/
 				font-size: 20px;
 				margin-top: -9px;
 			}
@@ -78,120 +77,103 @@
 				font-size: 16px;
 			}
 			
-			.textset {
-				color: white;
-				font-size: 18px;
-				font-weight: 800;
+			.mui-plus .mui-bar-nav~.mui-content {
+				padding: 0;
+			}
+			/*hm开头的表示仅为 Hello MUI示例定义*/
+			
+			.hm-description {
+				margin: .5em 0;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header id="header" class="mui-bar mui-bar-transparent">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title textset">流水</h1>
-			<a class="mui-icon mui-icon-search mui-pull-right" style="color: white;"></a>
+		<header id="header" class="mui-bar mui-bar-transparent" style="background: url(images/syx/2.jpg);">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:white;font-weight: 800;"></a>
+			<h1 class="mui-title" style="color:white;font-weight: 800;">流水</h1>
+			<a id="search" class="mui-icon mui-icon-search mui-pull-right" style="color:white;font-weight: 800;"></a>
 		</header>
-		
-<div class="mui-content">
-<img src="syx/2.jpg"/>
-	</div>
+
+		<div class="mui-content">
+			<!--<img src="images/syx/2.jpg"/>-->
+
+		</div>
 
 	</body>
 	<script type="text/javascript">
-				mui.init({
-				pullRefresh: {
-					container: '#pullrefresh',
-					down: {
-						callback: pulldownRefresh
-					},
-					up: {
-						contentrefresh: '正在加载...',
-						callback: pullupRefresh
-					}
-				}
-			});
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-			function pulldownRefresh() {
-				setTimeout(function() {
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 3; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<div class="mui-slider-right mui-disabled"><a class="mui-btn mui-btn-red">删除</a></div><div class="mui-slider-handle mui-table"><div class="mui-table-cell mui-col-xs-10"><h4 class="mui-ellipsis">2018-06-15</h4><h5>生活费</h5></div><div class="mui-table-cell mui-col-xs-2 mui-text-right"><span class="mui-h3" style="color: red;">200.00</span></div></div>';
-						//下拉刷新，新纪录插到最前面；
-						table.insertBefore(li, table.firstChild);
-					}
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1500);
-			}
-			var count = 0;
-			/**
-			 * 上拉加载具体业务实现
-			 */
-			function pullupRefresh() {
-				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 2; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<div class="mui-slider-right mui-disabled"><a class="mui-btn mui-btn-red">删除</a></div><div class="mui-slider-handle mui-table"><div class="mui-table-cell mui-col-xs-10"><h4 class="mui-ellipsis">2018-06-15</h4><h5>生活费</h5></div><div class="mui-table-cell mui-col-xs-2 mui-text-right"><span class="mui-h3" style="color: red;">200.00</span></div></div>';
-						table.appendChild(li);
-					}
-				}, 1500);
-			}
-		(function($) {
-				//$.swipeoutOpen(el,direction)//打开指定列的滑动菜单，el:指定列的dom对象，direction：取值left|right，指定打开的是左侧或右侧滑动菜单
-				//$.swipeoutClose(el);//关闭指定列的滑动菜单，el:指定列的dom对象
-				//				setTimeout(function() {
-				//					$.swipeoutOpen(document.getElementById("OA_task_1").querySelector('li:last-child'), 'left');
-				//					setTimeout(function() {
-				//						$.swipeoutClose(document.getElementById("OA_task_1").querySelector('li:last-child'));
-				//					}, 1000);
-				//				}, 1000);
-				//第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
-				$('#OA_task_1').on('tap', '.mui-btn', function(event) {
-					var elem = this;
-					var li = elem.parentNode.parentNode;
-					mui.confirm('确认删除该条记录？', '删除记录', btnArray, function(e) {
-						if (e.index == 0) {
-							li.parentNode.removeChild(li);
-						} else {
-							setTimeout(function() {
-								$.swipeoutClose(li);
-							}, 0);
-						}
-					});
-				});
-				var btnArray = ['确认', '取消'];
-			})(mui);
-			//启用双击监听
+		//启用双击监听
 		mui.init({
-			gestureConfig:{
-				doubletap:true
+			gestureConfig: {
+				doubletap: true
 			},
-			subpages:[{
-				url:'ls_1.html',
-				id:'ls_1.html',
-				styles:{
+			subpages: [{
+				url: 'ls_1.html',
+				id: 'ls_1.html',
+				styles: {
 					top: '45px',
 					bottom: '0px',
 				}
 			}]
 		});
-	
+
 		var contentWebview = null;
-		document.querySelector('header').addEventListener('doubletap',function () {
-			if(contentWebview==null){
+		document.querySelector('header').addEventListener('doubletap', function() {
+			if(contentWebview == null) {
 				contentWebview = plus.webview.currentWebview().children()[0];
 			}
 			contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
 		});
+		(function($, doc) {
+			//$.swipeoutOpen(el,direction)//打开指定列的滑动菜单，el:指定列的dom对象，direction：取值left|right，指定打开的是左侧或右侧滑动菜单
+			//$.swipeoutClose(el);//关闭指定列的滑动菜单，el:指定列的dom对象
+			//				setTimeout(function() {
+			//					$.swipeoutOpen(document.getElementById("OA_task_1").querySelector('li:last-child'), 'left');
+			//					setTimeout(function() {
+			//						$.swipeoutClose(document.getElementById("OA_task_1").querySelector('li:last-child'));
+			//					}, 1000);
+			//				}, 1000);
+			//第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
+			$('#OA_task_1').on('tap', '.mui-btn', function(event) {
+				var elem = this;
+				var li = elem.parentNode.parentNode;
+				mui.confirm('确认删除该条记录？', '删除记录', btnArray, function(e) {
+					if(e.index == 0) {
+						li.parentNode.removeChild(li);
+					} else {
+						setTimeout(function() {
+							$.swipeoutClose(li);
+						}, 0);
+					}
+				});
+			});
+			var btnArray = ['确认', '取消'];
+
+			var settings = app.getSettings();
+			var search = doc.getElementById("search");
+			//tap代替click作为点击事件
+			search.addEventListener('tap', function(event) {
+				$.openWindow({
+					url: 'search.html',
+					id: 'search',
+					preload: true,
+					show: {
+						aniShow: 'pop-in'
+					},
+					styles: {
+						popGesture: 'hide'
+					},
+					waiting: {
+						autoShow: false
+					}
+				});
+			}, false);
+		})(mui, document);
 	</script>
 	</body>
 

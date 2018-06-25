@@ -8,24 +8,18 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>图表</title>
 <script src="js/mui.min.js"></script>
-<link href="css/mui.min.css" rel="stylesheet" />
+<link href="css/smui.min.css" rel="stylesheet" />
 <script src="js/echarts-all.js"></script>
-<link rel="stylesheet" type="text/css" href="css/app.css" />
+<!--<link rel="stylesheet" type="text/css" href="css/app.css" />-->
 
 <style>
-	.textset {
-		color: white;
-		font-size: 18px;
-		font-weight: 800;
-	}
-	
 	#header {
 		background-color: rgb(76, 193, 250);
 	}
 	.chart {
 				height: 400px;
 				margin: 0px;
-				padding: 15px;
+				width: 100%;
 				
 	}
 	h4 {
@@ -34,17 +28,17 @@
 				text-align: center;
 				color: orange;
 			}
-	.mui-content{
+	/*.mui-content{
 		width: 100%;
-	}
+	}*/
 </style>
 </head>
 
 <body>
-	<header id="header" class="mui-bar mui-bar-nav">
-		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:white;"></a>
-		<h1 class="mui-title textset">图表</h1>
-	</header>
+		<header id="header" class="mui-bar mui-bar-nav" style="background: url(images/syx/2.jpg);">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:white;font-weight: 800;"></a>
+			<h1 class="mui-title" style="color:white;font-weight: 800;">图表</h1>
+		</header>
 	<div class="mui-content">
 		<div class="mui-content-padded">
 			<h4>本月图表</h4>
