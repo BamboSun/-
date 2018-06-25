@@ -1,0 +1,340 @@
+
+        @keyframes animtran {
+            from {
+                transform: rotateZ(0deg);
+            }
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+
+        @keyframes animtrans {
+            from {
+                transform: rotateZ(360deg);
+            }
+            to {
+                transform: rotateZ(0deg);
+            }
+        }
+
+        @-webkit-keyframes animtran {
+            from {
+                transform: rotateZ(0deg);
+            }
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+
+        @-webkit-keyframes animtrans {
+            from {
+                transform: rotateZ(360deg);
+            }
+            to {
+                transform: rotateZ(0deg);
+            }
+        }
+
+        @keyframes ani-one {
+            from {
+                left: 260px;
+            }
+            to {
+                left: 16px
+            }
+        }
+
+        @keyframes ani-two {
+            from {
+                left: 260px;
+            }
+            to {
+                left: 70px
+            }
+        }
+
+        @keyframes ani-three {
+            from {
+                top: 0;
+                left: 0;
+            }
+            to {
+                top: 8px;
+                left: 8px;
+            }
+        }
+
+        @keyframes ani-four {
+            0% {
+                width: 130px;
+                height: 50px;
+                left: 85px;
+                top: 125px;
+                box-shadow: #f6f6f6 8px 8px 8px 4px;
+                border: #eee 0px solid;
+                margin-left: 0;
+            }
+            100% {
+                width: 259px;
+                height: 333px;
+                left: 50%;
+                top: 0px;
+                box-shadow: #FFFFFF 0 0 0 0;
+                border: #eee 1px solid;
+                margin-left: -130px;
+            }
+        }
+
+        @keyframes ani-five {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes ani-six {
+            from {
+                left: 260px;
+            }
+            to {
+                left: 0;
+            }
+        }
+
+        @-webkit-keyframes ani-one {
+            from {
+                left: 260px;
+            }
+            to {
+                left: 16px
+            }
+        }
+
+        @-webkit-keyframes ani-two {
+            from {
+                left: 260px;
+            }
+            to {
+                left: 70px
+            }
+        }
+
+        @-webkit-keyframes ani-three {
+            from {
+                top: 0;
+                left: 0;
+            }
+            to {
+                top: 8px;
+                left: 8px;
+            }
+        }
+
+        @-webkit-keyframes ani-four {
+            0% {
+                width: 130px;
+                height: 50px;
+                left: 85px;
+                top: 125px;
+                box-shadow: #f6f6f6 8px 8px 8px 4px;
+                border: #eee 0px solid;
+                margin-left: 0;
+            }
+            100% {
+                width: 259px;
+                height: 333px;
+                left: 50%;
+                top: 0px;
+                box-shadow: #FFFFFF 0 0 0 0;
+                border: #eee 1px solid;
+                margin-left: -130px;
+            }
+        }
+
+        @-webkit-keyframes ani-five {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes ani-six {
+            from {
+                left: 260px;
+            }
+            to {
+                left: 0;
+            }
+        }
+
+        #applyfor {
+            width: 259px;
+            height: 333px;
+            margin: 20% auto;
+            position: relative;
+            display: none;
+        }
+
+        #applyfor form {
+            padding: 13px 16px 30px;
+            width: 259px;
+            height: 370px;
+            border: #eee 1px solid;
+            border-radius: 6px;
+            /* box-shadow: #f6f6f6 10px 10px 0px; */
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        #applyfor #shadow {
+            width: 259px;
+            height: 333px;
+            border-radius: 5px;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            background-color: #f3f3f3;
+        }
+
+        #applyfor button {
+            width: 120px;
+            height: 46px;
+            background: linear-gradient(to right, #c77dd1, #0093e9);
+            border-radius: 5px;
+            text-align: center;
+            line-height: 46px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 20px;
+            box-shadow: #f6f6f6 8px 8px 8px 4px;
+            border: none;
+            margin: 30px 0;
+            padding: 0;
+            position: absolute;
+            top: 267px;
+            left: 260px;
+        }
+
+        #applyfor input {
+            width: 225px;
+            border: none;
+            border-bottom: #eee 1px solid;
+            margin-top: 20px;
+            padding: 10px 0 10px 26px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+            background-size: auto 18px;
+            background-position: 0 center;
+            position: absolute;
+            left: 260px;
+        }
+
+        #applyfor input:nth-child(2) {
+            background-image: url(../images/syj/people.png);
+            margin-top: 30px;
+            top: 41px;
+        }
+
+        #applyfor input:nth-child(3) {
+            background-image: url(../images/syj/locked.png);
+            top: 110px;
+        }
+
+        #applyfor input:nth-child(4) {
+            background-image: url(../images/syj/locked.png);
+            top: 169px;
+        }
+        #applyfor input:nth-child(5) {
+            background-image: url(../images/syj/email.png);
+            top: 228px;
+        }
+
+        #applyfor form div {
+            position: absolute;
+            width: 257px;
+            height: 50px;
+            line-height: 50px;
+            top: 0;
+            left: 0;
+            background-color: #f6f6f6;
+        }
+
+        #applyfor i {
+            display: inline-block;
+            width: 6px;
+            height: 18px;
+            background: linear-gradient(to bottom, #c77dd1, #0093e9);
+            border-radius: 2px;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+        }
+
+        #applyfor span {
+            margin-left: 34px;
+            color: #333333;
+            /* position: absolute;
+            display: inline-block;
+            width: 64px; */
+        }
+
+        input::-webkit-input-placeholder {
+            /* WebKit browsers */
+            color: #999999;
+        }
+
+        input:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: #999999;
+        }
+
+        input::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: #999999;
+        }
+
+        input:-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: #999999;
+        }
+
+        .animation-paused {
+            animation-play-state: paused !important;
+            -webkit-animation-play-state: paused !important;
+        }
+
+        .animation-one {
+            animation: ani-one 0.6s ease 1;
+            -webkit-animation: ani-one 0.6s ease 1;
+        }
+
+        .animation-two {
+            animation: ani-two 0.6s ease 1;
+            -webkit-animation: ani-two 0.6s ease 1;
+        }
+
+        .animation-three {
+            animation: ani-three 0.6s ease 1;
+            -webkit-animation: ani-three 0.6s ease 1;
+        }
+
+        .animation-four {
+            animation: ani-four 0.3s ease 1;
+            -webkit-animation: ani-four 0.3s ease 1;
+        }
+		/*注册信息左侧小图案动画*/
+        .animation-six {
+            animation: ani-six 0.6s ease 1;
+            -webkit-animation: ani-six 0.6s ease 1;
+        }
+
+        .opacity0 {
+            opacity: 0;
+        }
