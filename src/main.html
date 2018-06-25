@@ -15,6 +15,9 @@
 			}
 			.mui-btn {
 				padding: 10px;
+				/*text-shadow: 1px 1px 0 rgba(255,255,255,0.4);*/
+				box-shadow: 0px 0px 3px #99CCCC ;
+				
 			}
 			* { touch-action: none; }
 			.mui-bar-transparent {
@@ -55,6 +58,14 @@
 			.mui-ellipsis {
 				font-size: x-small;
 				color: gainsboro;
+			}
+			.mui-slider {
+				
+			}
+			.tap-bar-btn {
+				margin-left: 1.5%;
+				width: 48%;
+				
 			}
 		</style>
 	</head>
@@ -109,12 +120,12 @@
 			
 			<!-- Tab bar 选项卡 -->
 			<nav class="mui-bar mui-bar-tab">
-				<button class="mui-btn">
-					<span class="mui-icon mui-icon-compose tap-bar-btn"></span>
+				<button class="mui-btn mui-btn-blue tap-bar-btn" href="#tabbar-with-plusempty">
+					<span class="mui-icon mui-icon-compose"></span>
 					<span class="mui-tab-label">编辑</span>
 				</button>
-				<button class="mui-btn" href="#tabbar-with-plusempty">
-					<span class="mui-icon mui-icon-plusempty tap-bar-btn"></span>
+				<button class="mui-btn mui-btn-blue tap-bar-btn" href="#tabbar-with-plusempty">
+					<span class="mui-icon mui-icon-plusempty"></span>
 					<span class="mui-tab-label">添加</span>
 				</button>
 			</nav>
@@ -178,22 +189,19 @@
 				
 				  <!--  记一笔  -->
 				  <div id="recordACount">
-				  	<!--<button id="record" class="mui-btn-blue">记一笔</button>-->
-				  <a href='jyb.html'>
-					<button id="record" class="mui-btn-blue">记一笔</button>
-				</a>
+					  <a href='record.html'>
+						<button id="record" class="mui-btn mui-btn-blue">记一笔</button>
+					  </a>
 				  </div>
 				  
-				  <div class="title">
-					右侧带导航箭头
-				  </div>
+				  <div class="title"> </div>
 				  <ul class="mui-table-view mui-table-view-chevron">
 					<li class="mui-table-view-cell mui-media">
 						<a class="mui-navigate-right">
 							<img class="mui-media-object mui-pull-left" src="images/syj/small-pic-1.png">
 							<div class="mui-media-body">
 								今天
-								<p class='mui-ellipsis'>最近一笔 正餐 13.30</p>
+								<p class='mui-ellipsis'>最近一笔 正餐 15.50</p>
 							</div>
 						</a>
 					</li>
@@ -218,14 +226,14 @@
 				  </ul>
 				  
 				  <div class="mui-content-padded">
-					<p>
+					<!--<p>
 						<ul>
 							<li>这是mui带登录和设置模板的示例App首页。</li>
 							<li>您可以点击右上角的 “设置” 按钮，进入设置模板，体验div窗体切换示例。</li>
 							<li>在 “设置” 中点击 “退出” 可以 “注销当前账户” 或 “直接关闭应用”。</li>
 							<li>你可以设置 “锁屏图案”，这样可通过手势密码代替输入账号、密码；</li>
 						</ul>
-					</p>
+					</p>-->
 
 				  </div>
 				</div>
@@ -242,17 +250,17 @@
 					<span class="mui-icon mui-icon-email"><span class="mui-badge">2</span></span>
 					<span class="mui-tab-label">消息</span>
 				</a>
-				<a class="mui-tab-item" id="liushui" href="#">
-					<span class="mui-icon mui-icon-compose" onclick="openwindow()"></span>				
+				<a class="mui-tab-item" id="dayaccount" href="#tabbar-with-compose">
+					<span class="mui-icon mui-icon-compose"></span>				
 					<span class="mui-tab-label">流水账</span>
 				</a>
-				<a class="mui-tab-item" id="yusuan" href="#mui-icon-starhalf">
+				<a class="mui-tab-item" id="budget" href="#tabbar-with-starhalf">
 					<span class="mui-icon mui-icon-starhalf"></span>
 					<span class="mui-tab-label">预算</span>
 				</a>
-				<a class="mui-tab-item" id="more" href="#tabbar-with-more">
-					<span class="mui-icon mui-icon-more"></span>
-					<span class="mui-tab-label">更多</span>
+				<a class="mui-tab-item" id="setting" href="#tabbar-with-setting">
+					<span class="mui-icon mui-icon-settings"></span>
+					<span class="mui-tab-label">设置</span>
 				</a>
 			</nav>
 			
@@ -351,13 +359,14 @@
 					};
 				});
 				
-				var liushuiTabItem = doc.getElementById('liushui');
-				var yusuanTabItem = doc.getElementById("yusuan");
+				var dayaccountTabItem = doc.getElementById('dayaccount');
+				var budgetTabItem = doc.getElementById("budget");
+				var settingTabItem = doc.getElementById("setting");
 				//tap代替click作为点击事件
-				liushuiTabItem.addEventListener('tap', function(event) {
+				dayaccountTabItem.addEventListener('tap', function(event) {
 						$.openWindow({
-							url: 'ls.html',
-							id: 'ls',
+							url: 'account.html',
+							id: 'account',
 							preload: true,
 							show: {
 								aniShow: 'pop-in'
@@ -371,10 +380,10 @@
 						});
 					}, false);
 
-				yusuanTabItem.addEventListener('tap', function(event) {
+				budgetTabItem.addEventListener('tap', function(event) {
 						$.openWindow({
-							url: 'ys.html',
-							id: 'ys',
+							url: 'budget.html',
+							id: 'budget',
 							preload: true,
 							show: {
 								aniShow: 'pop-in'
@@ -387,6 +396,24 @@
 							}
 						});
 					}, false);
+					
+				settingTabItem.addEventListener('tap', function(event) {
+						$.openWindow({
+							url: 'setting.html',
+							id: 'setting',
+							preload: true,
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					}, false);
+
 			}(mui, document));
 			
 			mui('.mui-scroll-wrapper').scroll();
