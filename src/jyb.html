@@ -4,13 +4,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>记一笔</title>
 		<script src="js/mui.min.js"></script>
-		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/smui.min.css" rel="stylesheet" />
 
-		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/app.css" />-->
 		<link href="css/mui.picker.css" rel="stylesheet" />
 		<link href="css/mui.poppicker.css" rel="stylesheet" />
 		<script src="js/mui.picker.js"></script>
@@ -28,11 +26,16 @@
 				margin: 0px;
 				background-color: #efeff4;
 			}
-			#showCityPicker2,#showCityPicker,#demo1,#demo2{
+			
+			#showCityPicker2,
+			#showCityPicker,
+			#demo1,
+			#demo2 {
 				height: 40px;
 				text-align: center;
 				padding: 0;
 			}
+			
 			h5.mui-content-padded {
 				margin-left: 3px;
 				margin-top: 20px !important;
@@ -90,21 +93,25 @@
 			}
 			
 			input[type=text] {
-				height: 60px;
+				height: 70px;
 				font-weight: 500;
+				margin-bottom: 0px;
 			}
 			
 			input {
-				font-size: 30px;
+				font-size: 32px;
 				text-align: center;
 			}
 			
 			#item1mobile input::-webkit-input-placeholder {
 				color: green;
+				text-align: center;
+				padding: 5px;
 			}
 			
 			#item2mobile input::-webkit-input-placeholder {
 				color: red;
+				padding: 5px;
 			}
 			
 			.mui-slider .mui-slider-group {
@@ -112,13 +119,13 @@
 			}
 			
 			#save {
-				width: 49%;
+				width: 48%;
 				float: left;
 				color: white;
 			}
 			
 			#cancel {
-				width: 49%;
+				width: 48%;
 				float: right;
 				color: white;
 			}
@@ -135,7 +142,7 @@
 			}
 			
 			#img1 {
-				height: 150px;
+				height: 120px;
 				width: 100%;
 				opacity: 0.8;
 			}
@@ -144,13 +151,9 @@
 				color: white;
 				background: #007AFF;
 			}
+		
 			
-			.textset {
-				color: white;
-				font-size: 18px;
-				font-weight: 800;
-			}
-			#textarea{
+			#textarea {
 				padding: 15px;
 			}
 		</style>
@@ -159,18 +162,18 @@
 	<body>
 		<!--导航栏-->
 		<header id="header" class="mui-bar mui-bar-transparent">
-			<h1 class="mui-title textset">记一笔</h1>
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<a href="main.html"><button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right" style="color:white;font-size: 20px;font-weight: 800;">保存</button></a>
+			<h1 class="mui-title textset" style="color:white;font-weight: 800;">记一笔</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:white;"></a>
+			<a href="main.html"><button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right" style="color:white;font-weight: 800;">保存</button></a>
 		</header>
 
 		<!--中间部分-->
 		<div class="mui-content">
-			<img id="img1" src="syx/2.jpg" />
-			<div id="slider" class="mui-slider ">
+			<img id="img1" src="images/syx/2.jpg" />
+			<div id="slider" class="mui-slider " >
 				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-					<a class="mui-control-item" href="#item1mobile" style="font-size: 15px;font-weight: 800;">支出</a>
-					<a class="mui-control-item" href="#item2mobile" style="font-size: 15px;font-weight: 800;">收入</a>
+					<a class="mui-control-item mui-active" href="#item1mobile" style="font-size: 18px;font-weight: 800;">支出</a>
+					<a class="mui-control-item" href="#item2mobile" style="font-size: 18px;font-weight: 800;">收入</a>
 				</div>
 				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
 				<div class="mui-slider-group">
@@ -214,8 +217,8 @@
 			</div>
 			<!--<nav class=" mui-bar mui-bar-tab btna">-->
 			<div id="btnb">
-				<a href="main.html"><button type="button" id="save" class="mui-btn-yellow" style="font-weight: 800;">保存</button></a>
-				<button type="button" id="cancel" class="mui-btn-grey" style="font-weight: 800;">取消</button>
+				<a href="main.html"><button type="button" id="save" class="mui-btn mui-btn-yellow">保存</button></a>
+				<a href="main.html"><button type="button" id="cancel" class="mui-btn mui-btn-grey">取消</button></a>
 			</div>
 			<!--</nav>-->
 
@@ -264,7 +267,7 @@
 
 				});
 			})(mui, document);
-(function($, doc) {
+			(function($, doc) {
 				$.init();
 				$.ready(function() {
 					/**
@@ -351,7 +354,6 @@
 					}, false);
 				});
 			})(mui);
-						
 		</script>
 	</body>
 

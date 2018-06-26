@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>流水</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/smui.min.css" rel="stylesheet" />
+		<script src="js/app.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="css/app.css" />-->
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.mui-bar .mui-pull-left .mui-icon {
+				padding-right: 5px;
+				font-size: 28px;
+			}
+			
+			.mui-bar .mui-btn {
+				font-weight: normal;
+				font-size: 17px;
+			}
+			
+			.mui-bar .mui-btn-link {
+				top: 1px;
+			}
+			
+			.mui-content img {
+				width: 100%;
+			}
+			
+			.hm-description {
+				margin: 15px;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			
+			.mui-bar-transparent {
+				background-color: rgba(76, 193, 250, 0);
+			}
+			
+			.container {
+				position: relative;
+				color: white;
+			}
+			
+			.bottomleft {
+				position: absolute;
+				bottom: 8px;
+				left: 16px;
+				font-size: 16px;
+			}
+			
+			.center {
+				position: absolute;
+				left: 16px;
+				top: 50%;
+				width: 100%;
+				/*				text-align: center;*/
+				font-size: 20px;
+				margin-top: -9px;
+			}
+			
+			.bottomright {
+				position: absolute;
+				bottom: 8px;
+				right: 16px;
+				font-size: 16px;
+			}
+			
+			.mui-plus .mui-bar-nav~.mui-content {
+				padding: 0;
+			}
+			/*hm开头的表示仅为 Hello MUI示例定义*/
+			
+			.hm-description {
+				margin: .5em 0;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-transparent" style="background: url(images/syx/2.jpg);">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:white;font-weight: 800;"></a>
+			<h1 class="mui-title" style="color:white;font-weight: 800;">流水</h1>
+			<a id="search" class="mui-icon mui-icon-search mui-pull-right" style="color:white;font-weight: 800;"></a>
+		</header>
+
+		<div class="mui-content">
+			<!--<img src="images/syx/2.jpg"/>-->
+
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		//启用双击监听
+		mui.init({
+			gestureConfig: {
+				doubletap: true
+			},
+			subpages: [{
+				url: 'accountbody.html',
+				id: 'accountbody.html',
+				styles: {
+					top: '45px',
+					bottom: '0px',
+				}
+			}]
+		});
+
+		var contentWebview = null;
+		document.querySelector('header').addEventListener('doubletap', function() {
+			if(contentWebview == null) {
+				contentWebview = plus.webview.currentWebview().children()[0];
+			}
+			contentWebview.evalJS("mui('#pullrefresh').pullRefresh().scrollTo(0,0,100)");
+		});
+		(function($, doc) {
+			//$.swipeoutOpen(el,direction)//打开指定列的滑动菜单，el:指定列的dom对象，direction：取值left|right，指定打开的是左侧或右侧滑动菜单
+			//$.swipeoutClose(el);//关闭指定列的滑动菜单，el:指定列的dom对象
+			//				setTimeout(function() {
+			//					$.swipeoutOpen(document.getElementById("OA_task_1").querySelector('li:last-child'), 'left');
+			//					setTimeout(function() {
+			//						$.swipeoutClose(document.getElementById("OA_task_1").querySelector('li:last-child'));
+			//					}, 1000);
+			//				}, 1000);
+			//第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
+			$('#OA_task_1').on('tap', '.mui-btn', function(event) {
+				var elem = this;
+				var li = elem.parentNode.parentNode;
+				mui.confirm('确认删除该条记录？', '删除记录', btnArray, function(e) {
+					if(e.index == 0) {
+						li.parentNode.removeChild(li);
+					} else {
+						setTimeout(function() {
+							$.swipeoutClose(li);
+						}, 0);
+					}
+				});
+			});
+			var btnArray = ['确认', '取消'];
+
+			var settings = app.getSettings();
+			var search = doc.getElementById("search");
+			//tap代替click作为点击事件
+			search.addEventListener('tap', function(event) {
+				$.openWindow({
+					url: 'search.html',
+					id: 'search',
+					preload: true,
+					show: {
+						aniShow: 'pop-in'
+					},
+					styles: {
+						popGesture: 'hide'
+					},
+					waiting: {
+						autoShow: false
+					}
+				});
+			}, false);
+		})(mui, document);
+	</script>
+	</body>
+
+</html>
