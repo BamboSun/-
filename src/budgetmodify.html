@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>预算</title>
+		<script src="js/mui.min.js"></script>
+		<script src="js/budgetmodify.js"></script>
+<!--		<link rel="stylesheet" type="text/css" href="css/app.css" />-->
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/budgetmodify.css" />
+		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+				height: 100%;
+			}
+			
+			.mui-bar .mui-pull-left .mui-icon-extra {
+				padding-right: 5px;
+				font-size: 28px;
+			}
+			
+			.mui-bar .mui-btn {
+				font-weight: normal;
+				font-size: 17px;
+			}
+			
+			.mui-bar .mui-btn-link {
+				top: 1px;
+			}
+			
+			.mui-content img {
+				width: 100%;
+			}
+			
+			.hm-description {
+				margin: 15px;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			
+			.mui-bar-transparent {
+				background-color: rgba(76, 193, 250, 0);
+			}
+			
+			.container {
+				position: relative;
+				color: white;
+			}
+		
+			
+			#img1 {
+				height: 120px;
+				width: 100%;
+				opacity: 0.8;
+			}
+			
+			
+			.mui-progressbar span {
+				background: orange;
+			}
+			
+			.mui-progressbar {
+				height: 3px;
+			}
+			
+			.mui-table-view .mui-media-object {
+				line-height: 60px;
+				max-width: 60px;
+				height: 60px;
+			}
+			
+			.mui-plus .mui-bar-nav~.mui-content {
+				padding: 0;
+			}
+			/*hm开头的表示仅为 Hello MUI示例定义*/
+			
+			.hm-description {
+				margin: .5em 0;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			
+			.top span.clear {
+				float: left;
+				margin: 0 0 11px 8px;
+				background: orange;
+			}
+			
+			#calculator {
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				margin: 0;
+				height: 45%;
+				background: rgba(78,183,227,0.7);
+				/*background: #4eb7e3;*/
+			}
+			
+			.keys span.eval {
+				font-size: 30px;
+				color: white;
+				background: #007AFF;
+				
+			}
+			
+			.flex-container {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-flex-flow: row wrap;
+				justify-content: space-between;
+				text-align: center;
+			}
+			
+			.mui-content-padded {
+				padding-top:60px ;
+			}
+			
+			.mui-content-padded a {
+				margin-top: 10px;
+				width: 100px;
+				height: 100px;
+				display: inline-block;
+				text-align: center;
+				background-color: #fff;
+				border: 1px solid #ddd;
+				border-radius: 50px;
+				background-clip: padding-box;
+				
+			}
+			.mui-content-padded .lefticon{
+				margin-left: 12%;
+				margin-right: 8%;
+				
+			}
+			.mui-content-padded .righticon{
+				margin-left: 8%;
+				margin-right: 12%;
+			}
+			.mui-content-padded a .mui-icon-extra {
+				margin-top: 22px;
+				font-size: 50px;
+			}
+			
+			.mui-spinner,
+			.mui-spinner-white {
+				margin-top: 10px;
+			}
+			
+			.active .mui-spinner-indicator {
+				background: #007AFF;
+			}
+			
+			.mui-content a {
+				color: #8F8F94;
+			}
+			
+			.mui-content a.active {
+				color: #007aff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav" style="background: url(images/syx/2.jpg);">
+			<h1 class="mui-title textset" style="color:white;font-weight: 800;">修改预算</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:white;"></a>
+			<a href="budget.html"><button class="mui-btn mui-btn-blue mui-btn-link mui-pull-right" style="color:white;font-weight: 800;">保存</button></a>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+					<a id="icon-icon-contact" class="lefticon"><span class="mui-icon-extra mui-icon-extra-cate"></span></a>
+					<a id="icon-person" class="righticon"><span class="mui-icon-extra mui-icon-extra-express"></span></a>
+					<a id="icon-personadd" class="lefticon"><span class="mui-icon-extra mui-icon-extra-cart"></span></a>
+					<a id="icon-phone" class="righticon"><span class="mui-icon-extra mui-icon-extra-grech"></span></a>
+			</div>
+			<div id="calculator">
+				<div class="top">
+
+					<div class="screen"></div>
+					<span class="clear">完成</span>
+				</div>
+				<div class="keys">
+
+					<span>7</span>
+					<span>8</span>
+					<span>9</span>
+					<span>4</span>
+					<span>5</span>
+					<span>6</span>
+
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>0</span>
+					<span>.</span>
+					<span class="eval">←</span>
+
+				</div>
+
+			</div>
+			</div>
+
+	</body>
+
+	<script type="text/javascript">
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		var active = null,
+			lastid, span;
+		mui(".mui-content").on("tap", "a", function() {
+			var id = this.getAttribute("id");
+			if(!active) {
+				this.classList.add("active");
+				if(id) {
+					span = this.querySelector("span");
+					span.classList.remove("mui-" + id);
+					span.classList.add("mui-" + id + "-filled");
+				}
+				active = this;
+			} else {
+				active.classList.remove("active");
+				if(lastid) {
+					span.classList.remove("mui-" + lastid + "-filled");
+					span.classList.add("mui-" + lastid);
+				}
+
+				this.classList.add("active");
+				if(id) {
+					span = this.querySelector("span");
+					span.classList.remove("mui-" + id);
+					span.classList.add("mui-" + id + "-filled");
+				}
+
+				active = this;
+			}
+			lastid = id;
+		});
+	</script>
+	</body>
+
+</html>
